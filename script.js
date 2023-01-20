@@ -13,7 +13,7 @@ let add = document.querySelector(".add");
 
 // task 6: declare variables for your display divs: the image url, song name, artist, and song link. Go back to the HTML to check that you are using the correct class names.
 let dispImage = document.querySelector(".display-image");
-let dispSong = document.querySelector("display-song");
+let dispSong = document.querySelector(".display-song");
 let dispArtist = document.querySelector(".display-artist");
 let dispLink = document.querySelector(".display-link");
 
@@ -21,10 +21,10 @@ let dispLink = document.querySelector(".display-link");
 
 
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
-let imageUrls =["https://i.scdn.co/image/ab67616d0000b273167f7c87b645459f16524a18", "https://images.genius.com/e48222b5d5b67af6c5ac78b812d4070b.500x500x1.jpg", "https://i1.sndcdn.com/artworks-UZPbaovUKbUVpqmS-bhMFkA-t500x500.jpg", "https://i.scdn.co/image/ab67616d0000b273cbe979bb2069df4743b378fb", "https://t2.genius.com/unsafe/288x285/https%3A%2F%2Fimages.genius.com%2F6706c7fe79f16a43247aba4651be7f14.1000x991x1.png"];
-let songNames =["Nights", "I Feel Fantastic", "Cruel", "Nocturne No.2 in E Flat Major, Op.9", "Out Of Control"];
-let artistNames =["Billy Ocean", "Riovaz", "Slowymane", "Frédéric Chopin", "Nothing’s Carved In Stone"];
-let songLinks =["https://www.youtube.com/watch?v=7gNjgU_1th0", "https://www.youtube.com/watch?v=z858dTRlFLQ", "https://www.youtube.com/watch?v=ov5kAKWS-iU", "https://www.youtube.com/watch?v=bVeOdm-29pU", "https://youtu.be/rqsHvAq4R40"];
+let imageUrls = ["https://i.scdn.co/image/ab67616d0000b273167f7c87b645459f16524a18", "https://images.genius.com/e48222b5d5b67af6c5ac78b812d4070b.500x500x1.jpg", "https://i1.sndcdn.com/artworks-UZPbaovUKbUVpqmS-bhMFkA-t500x500.jpg", "https://i.scdn.co/image/ab67616d0000b273cbe979bb2069df4743b378fb", "https://t2.genius.com/unsafe/288x285/https%3A%2F%2Fimages.genius.com%2F6706c7fe79f16a43247aba4651be7f14.1000x991x1.png"];
+let songNames = ["Nights", "I Feel Fantastic", "Cruel", "Nocturne No.2 in E Flat Major, Op.9", "Out Of Control"];
+let artistNames = ["Billy Ocean", "Riovaz", "Slowymane", "Frédéric Chopin", "Nothing’s Carved In Stone"];
+let songLinks = ["https://www.youtube.com/watch?v=7gNjgU_1th0", "https://www.youtube.com/watch?v=z858dTRlFLQ", "https://www.youtube.com/watch?v=ov5kAKWS-iU", "https://www.youtube.com/watch?v=bVeOdm-29pU", "https://youtu.be/rqsHvAq4R40"];
 
 
 
@@ -50,10 +50,10 @@ let songLinks =["https://www.youtube.com/watch?v=7gNjgU_1th0", "https://www.yout
 
 function addSongInfo() {
 
-// task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
+  // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
 
 
-// task 10: use `.push()` to add each input value to the correct array.
+  // task 10: use `.push()` to add each input value to the correct array.
 
 }
 
@@ -73,19 +73,23 @@ function emptyDisplay() {
 
 function displaySongInfo() {
 
-// task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
-for (i in imageUrls) {
+  // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
+  for (let i in imageUrls) {
     console.log(imageUrls[i]);
-}
-  for (i in songNames) {
+    dispImage.innerHTML = `<p> <img src= ${imageUrls[i]} > </p>`;
+  }
+  for (let i in songNames) {
     console.log(songNames[i]);
-}
-  for (i in artistNames) {
+    dispSong.innerHTML = `<p> ${songNames[i]} </p>`;
+  }
+  for (let i in artistNames) {
     console.log(artistNames[i]);
-}
-  for (i in songLinks) {
+    dispArtist.innerHTML = `<p> ${artistNames[i]} </p>`;
+  }
+  for (let i in songLinks) {
     console.log(songLinks[i]);
-}
+    dispLink.innerHTML = `<p> <a> href= ${songLinks[i]} </a> </p>`;
+  }
 
 
 
