@@ -31,7 +31,7 @@ They will use .push to add new songs to their playlist. Then, students will refa
 
 ## JavaScript: Loop and Display Data
 
-8. [ ] Loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
+8. [x] Loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
 What to display your song data in:
 

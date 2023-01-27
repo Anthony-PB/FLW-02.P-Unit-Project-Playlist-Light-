@@ -3,6 +3,24 @@ html, body {
   width: 100%;
 }
 
+a:link{
+  color: #FF7F50;
+  text-decoration: underline;
+  
+}
+
+a:hover{
+color: #FF7F50;
+  text-decoration: overline;
+  
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
 h1 {
   text-align: center;
 }
@@ -79,7 +97,7 @@ button {
 
 body {
   background: url(https://i.pinimg.com/originals/b8/4f/41/b84f4195a6d33c93d01111287c0c7b7e.jpg);
-color: black;
+  color: #FF7F50;
 }
 
 h4{
