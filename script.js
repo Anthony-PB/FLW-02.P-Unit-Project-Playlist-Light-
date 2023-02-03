@@ -55,15 +55,15 @@ function addSongInfo() {
 
   // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
 
-  imgInput = image.val.trim();
-  songInput = songName.val.trim();
-  artistInput = artist.val.trim();
-  songInput = songLink.val.trim();
+  let imgInput = image.value.trim();
+  let songInput = songName.value.trim();
+  let artistInput = artist.value.trim();
+  let songLinkInput = songLink.value.trim();
   // task 10: use `.push()` to add each input value to the correct array.
   imageUrls.push(imgInput);
   songNames.push(songInput);
   artistNames.push(artistInput);
-  songLinks.push(songInput);
+  songLinks.push(songLinkInput);
 }
 
 
@@ -71,10 +71,10 @@ function addSongInfo() {
 
 /******** this function empties the display divs each time the button is clicked so that your playlist does not repeatedly add the data too many times. Where should this function be placed???********/
 function emptyDisplay() {
-  displayImage.innerHTML = " ";
-  displaySong.innerHTML = " ";
-  displayArtist.innerHTML = " ";
-  displayLink.innerHTML = " ";
+  dispImage.innerHTML = "";
+  dispSong.innerHTML = "";
+  dispArtist.innerHTML = "";
+  dispLink.innerHTML = "";
 }
 
 
@@ -84,7 +84,7 @@ function displaySongInfo() {
 
   // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
-  for (let i in imageUrls) {
+  /*for (let i in imageUrls) {
     console.log(imageUrls[i]);
     dispImage.insertAdjacentHTML("afterbegin", `<p> <img src= ${imageUrls[i]} > </p>`);
   }
@@ -100,8 +100,17 @@ function displaySongInfo() {
     console.log(songLinks[i]);
     dispLink.insertAdjacentHTML("afterbegin", `<p> <a href= ${songLinks[i]} target= " " >Link</a> </p>`);
 
+  }*/
+  for (let i = 0; i < songNames.length; i++) {
+    console.log(songLinks[i]);
+    dispLink.insertAdjacentHTML("afterbegin", `<p> <a href= ${songLinks[i]} target= " " >Link</a> </p>`);
+    console.log(artistNames[i]);
+    dispArtist.insertAdjacentHTML("afterbegin", `<p> ${artistNames[i]} </p>`);
+    console.log(songNames[i]);
+    dispSong.insertAdjacentHTML("afterbegin", `<p> ${songNames[i]} </p>`);
+    console.log(imageUrls[i]);
+    dispImage.insertAdjacentHTML("afterbegin", `<p> <img src= ${imageUrls[i]} > </p>`);
   }
-
 
 
 
@@ -114,9 +123,12 @@ function displaySongInfo() {
 
 // click event to add and display songs
 add.onclick = function() {
+  if(image.value === "" || songName.value === "" || artist.value === "" || songLink.value === ""){
+    return
+  }
+  emptyDisplay();
   addSongInfo();
   displaySongInfo();
-  emptyDisplay()
 };
 
 // function call to display stored songs

@@ -45,9 +45,9 @@ What to display your song data in:
 
 ## JavaScript: Add Song Data
 
-9. [ ] Declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
+9. [x] Declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
    
-10. [ ] Use `.push()` to add each input value to the correct array.
+10. [x] Use `.push()` to add each input value to the correct array.
 
 
 
