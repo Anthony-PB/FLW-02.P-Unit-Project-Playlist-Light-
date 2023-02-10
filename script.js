@@ -36,7 +36,9 @@ let songLinks = ["https://www.youtube.com/watch?v=7gNjgU_1th0", "https://www.you
 
 //REFACTOR ARRAYS DAY 
 // task 11: comment out the arrays data.
+
 // task 12: create an object for each of your songs.
+
 // task 13: inside each object, add key/value pairs to store the image url, song name, artist, and song link.
 // task 14: create an array that stores all of the objects.
 
@@ -122,13 +124,21 @@ function displaySongInfo() {
 
 
 // click event to add and display songs
+let CLEAR = function() {
+  image.value = "";
+  songName.value = "";
+  songLink.value = "";
+  artist.value = "";
+
+};
 add.onclick = function() {
-  if(image.value === "" || songName.value === "" || artist.value === "" || songLink.value === ""){
+  if (image.value === "" || songName.value === "" || artist.value === "" || songLink.value === "") {
     return
   }
   emptyDisplay();
   addSongInfo();
   displaySongInfo();
+  CLEAR();
 };
 
 // function call to display stored songs
