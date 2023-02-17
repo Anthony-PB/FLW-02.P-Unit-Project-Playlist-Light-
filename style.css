@@ -55,6 +55,14 @@ h1 {
   
 }
 
+.number_d{
+  color: #FF7F50;
+  font-weight: bold;
+  border: 5px solid black;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .display-song p {
   font-size: 18px;
   height: 100px;
@@ -97,6 +105,9 @@ button {
 
 body {
   background-image: url(https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhZGllbnQlMjBibHVlfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: navy;
   color: #FF7F50;
 }
