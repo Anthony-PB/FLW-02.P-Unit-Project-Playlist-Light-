@@ -21,6 +21,7 @@ let dispLink = document.querySelector(".display-link");
 
 
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
+/*
 let imageUrls = ["https://i.scdn.co/image/ab67616d0000b273167f7c87b645459f16524a18", "https://images.genius.com/e48222b5d5b67af6c5ac78b812d4070b.500x500x1.jpg", "https://i1.sndcdn.com/artworks-UZPbaovUKbUVpqmS-bhMFkA-t500x500.jpg", "https://i.scdn.co/image/ab67616d0000b273cbe979bb2069df4743b378fb", "https://t2.genius.com/unsafe/288x285/https%3A%2F%2Fimages.genius.com%2F6706c7fe79f16a43247aba4651be7f14.1000x991x1.png"];
 
 let songNames = ["Nights", "I Feel Fantastic", "Cruel", "Nocturne No.2 in E Flat Major, Op.9", "Out Of Control"];
@@ -28,7 +29,7 @@ let songNames = ["Nights", "I Feel Fantastic", "Cruel", "Nocturne No.2 in E Flat
 let artistNames = ["Billy Ocean", "Riovaz", "Slowymane", "Frédéric Chopin", "Nothing’s Carved In Stone"];
 
 let songLinks = ["https://www.youtube.com/watch?v=7gNjgU_1th0", "https://www.youtube.com/watch?v=z858dTRlFLQ", "https://www.youtube.com/watch?v=ov5kAKWS-iU", "https://www.youtube.com/watch?v=bVeOdm-29pU", "https://youtu.be/rqsHvAq4R40"];
-
+*/
 
 
 
@@ -48,7 +49,8 @@ const nothings_carved_in_stone_song = {title:"Out Of Control", artist:"Nothing�
 // task 13: inside each object, add key/value pairs to store the image url, song name, artist, and song link.
 // task 14: create an array that stores all of the objects.
 
-let big_boy_storage = {nights_song, I_feel_fantastic_song, cruel_song, nocturne_no_two_song, nothings_carved_in_stone_song}
+let big_boy_storage = [nights_song, I_feel_fantastic_song, cruel_song, nocturne_no_two_song, nothings_carved_in_stone_song]
+
 
 //REFACTOR LOOPS DAY 
 // task 15: update your `addSongInfo` function so the input values are saved in as values in a new object.
@@ -68,10 +70,19 @@ function addSongInfo() {
   let artistInput = artist.value.trim();
   let songLinkInput = songLink.value.trim();
   // task 10: use `.push()` to add each input value to the correct array.
+  /*
   imageUrls.push(imgInput);
   songNames.push(songInput);
   artistNames.push(artistInput);
   songLinks.push(songLinkInput);
+  */
+  
+
+  let newSong = {
+    title:songInput, artist:artistInput, image:imgInput, link:songLinkInput
+  }
+
+  big_boy_storage.push(newSong)
 }
 
 
@@ -109,22 +120,27 @@ function displaySongInfo() {
     dispLink.insertAdjacentHTML("afterbegin", `<p> <a href= ${songLinks[i]} target= " " >Link</a> </p>`);
 
   }*/
+  /*
   for (let i = 0; i < songNames.length; i++) {
-    console.log(songLinks[i]);
     dispLink.insertAdjacentHTML("afterbegin", `<p> <a href= ${songLinks[i]} target= " " >Link</a> </p>`);
-    console.log(artistNames[i]);
     dispArtist.insertAdjacentHTML("afterbegin", `<p> ${artistNames[i]} </p>`);
-    console.log(songNames[i]);
     dispSong.insertAdjacentHTML("afterbegin", `<p> ${songNames[i]} </p>`);
-    console.log(imageUrls[i]);
     dispImage.insertAdjacentHTML("afterbegin", `<p> <img src= ${imageUrls[i]} > </p>`);
   }
-
-
-
-
+  */
+  
+  big_boy_storage.forEach(function(songArray) {
+    dispLink.insertAdjacentHTML("afterbegin", `<p> <a href= ${songArray.link} target= " " >Link</a> </p>`);
+    dispArtist.insertAdjacentHTML("afterbegin", `<p> ${songArray.artist} </p>`);
+    dispSong.insertAdjacentHTML("afterbegin", `<p> ${songArray.title} </p>`);
+    dispImage.insertAdjacentHTML("afterbegin", `<p> <img src= ${songArray.image} > </p>`);
+    console.log(big_boy_storage);
+  });
+  
+  
+  
 }
-// THESE ARE IDEAS THAT STILL NEED TO BE COMPLETED (WHEN AN INPUT FIELD IS EMPTY, DISPLAY A MESSAGE SAYING "Please Fill Out All Fields")
+// THESE ARE IDEAS THAT STILL NEED TO BE COMPLETED (WHEN AN INPUT FIELD IS EMPTY, DISPLAY A MESSAGE SAYING "Please Fill Out All Fields")(Shuffle)(Delete)(Clear)
 /*let MESSAGE = function() {
   
 }*/
@@ -132,7 +148,7 @@ function displaySongInfo() {
 
 
 let COUNT = function() {
-let numberS = songNames.length
+let numberS = big_boy_storage.length
   numbD.innerHTML = `<p> Number Of Songs: ${numberS} </p>`
   
   
