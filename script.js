@@ -1,5 +1,7 @@
 // task 5: read through the JavaScript starter code to determine where each given function is declared and where each given function is called.
 let numbD = document.querySelector(".number_d");
+let message = document.querySelector(".message");
+let deleteButton = document.querySelector(".delete");
 
 // input variables
 let image = document.querySelector(".image");
@@ -41,11 +43,11 @@ let songLinks = ["https://www.youtube.com/watch?v=7gNjgU_1th0", "https://www.you
 
 // task 12: create an object for each of your songs.
 
-const nights_song = {title:"Nights", artist:"Billy Ocean", image:"https://i.scdn.co/image/ab67616d0000b273167f7c87b645459f16524a18", link:"https://www.youtube.com/watch?v=7gNjgU_1th0"};
-const I_feel_fantastic_song = {title:"I Feel Fantastic", artist:"Riovaz", image:"https://images.genius.com/e48222b5d5b67af6c5ac78b812d4070b.500x500x1.jpg", link:"https://www.youtube.com/watch?v=z858dTRlFLQ"};
-const cruel_song = {title:"Cruel", artist:"Slowymane", image:"https://i1.sndcdn.com/artworks-UZPbaovUKbUVpqmS-bhMFkA-t500x500.jpg", link:"https://www.youtube.com/watch?v=ov5kAKWS-iU"};
-const nocturne_no_two_song = {title:"Nocturne No.2 in E Flat Major, Op.9", artist:"Frédéric Chopin", image:"https://i.scdn.co/image/ab67616d0000b273cbe979bb2069df4743b378fb", link:"https://www.youtube.com/watch?v=bVeOdm-29pU"};
-const nothings_carved_in_stone_song = {title:"Out Of Control", artist:"Nothing’s Carved In Stone", image:"https://t2.genius.com/unsafe/288x285/https%3A%2F%2Fimages.genius.com%2F6706c7fe79f16a43247aba4651be7f14.1000x991x1.png", link:"https://youtu.be/rqsHvAq4R40"};
+const nights_song = { title: "Nights", artist: "Billy Ocean", image: "https://i.scdn.co/image/ab67616d0000b273167f7c87b645459f16524a18", link: "https://www.youtube.com/watch?v=7gNjgU_1th0" };
+const I_feel_fantastic_song = { title: "I Feel Fantastic", artist: "Riovaz", image: "https://images.genius.com/e48222b5d5b67af6c5ac78b812d4070b.500x500x1.jpg", link: "https://www.youtube.com/watch?v=z858dTRlFLQ" };
+const cruel_song = { title: "Cruel", artist: "Slowymane", image: "https://i1.sndcdn.com/artworks-UZPbaovUKbUVpqmS-bhMFkA-t500x500.jpg", link: "https://www.youtube.com/watch?v=ov5kAKWS-iU" };
+const nocturne_no_two_song = { title: "Nocturne No.2 in E Flat Major, Op.9", artist: "Frédéric Chopin", image: "https://i.scdn.co/image/ab67616d0000b273cbe979bb2069df4743b378fb", link: "https://www.youtube.com/watch?v=bVeOdm-29pU" };
+const nothings_carved_in_stone_song = { title: "Out Of Control", artist: "Nothing’s Carved In Stone", image: "https://t2.genius.com/unsafe/288x285/https%3A%2F%2Fimages.genius.com%2F6706c7fe79f16a43247aba4651be7f14.1000x991x1.png", link: "https://youtu.be/rqsHvAq4R40" };
 // task 13: inside each object, add key/value pairs to store the image url, song name, artist, and song link.
 // task 14: create an array that stores all of the objects.
 
@@ -76,10 +78,10 @@ function addSongInfo() {
   artistNames.push(artistInput);
   songLinks.push(songLinkInput);
   */
-  
+
 
   let newSong = {
-    title:songInput, artist:artistInput, image:imgInput, link:songLinkInput
+    title: songInput, artist: artistInput, image: imgInput, link: songLinkInput
   }
 
   big_boy_storage.push(newSong)
@@ -128,7 +130,7 @@ function displaySongInfo() {
     dispImage.insertAdjacentHTML("afterbegin", `<p> <img src= ${imageUrls[i]} > </p>`);
   }
   */
-  
+
   big_boy_storage.forEach(function(songArray) {
     dispLink.insertAdjacentHTML("afterbegin", `<p> <a href= ${songArray.link} target= " " >Link</a> </p>`);
     dispArtist.insertAdjacentHTML("afterbegin", `<p> ${songArray.artist} </p>`);
@@ -136,22 +138,26 @@ function displaySongInfo() {
     dispImage.insertAdjacentHTML("afterbegin", `<p> <img src= ${songArray.image} > </p>`);
     console.log(big_boy_storage);
   });
-  
-  
-  
+
+
+
 }
-// THESE ARE IDEAS THAT STILL NEED TO BE COMPLETED (WHEN AN INPUT FIELD IS EMPTY, DISPLAY A MESSAGE SAYING "Please Fill Out All Fields")(Shuffle)(Delete)(Clear)
-/*let MESSAGE = function() {
-  
-}*/
+// THESE ARE IDEAS THAT STILL NEED TO BE COMPLETED (Shuffle)(Delete)(Clear)
+let MESSAGE = function() {
+  message.innerHTML = `<p> Please Fill Out All Fields </p>`;
+  message.style.border = "5px solid black";
+}
 
-
+let MESSAGEDELETE = function() {
+  message.innerHTML = '';
+  message.style.border = "";
+}
 
 let COUNT = function() {
-let numberS = big_boy_storage.length
+  let numberS = big_boy_storage.length
   numbD.innerHTML = `<p> Number Of Songs: ${numberS} </p>`
-  
-  
+
+
 };
 
 
@@ -163,8 +169,17 @@ let CLEAR = function() {
   artist.value = "";
 
 };
+
+deleteButton.onclick = function() {
+  console.log(big_boy_storage.length);
+  big_boy_storage = [];
+  console.log(big_boy_storage.length);
+  emptyDisplay();
+};
+
 add.onclick = function() {
   if (image.value === "" || songName.value === "" || artist.value === "" || songLink.value === "") {
+    MESSAGE();
     return
   }
   emptyDisplay();
@@ -172,6 +187,7 @@ add.onclick = function() {
   displaySongInfo();
   CLEAR();
   COUNT();
+  MESSAGEDELETE();
 };
 
 // function call to display stored songs
